@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,900');
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+// variables and functions
+$color-1: #8789C0;
+$color-2: #45F0DF;
+$color-3: #C2CAE8;
+$color-4: #8380B6;
+$color-5: #111D4A;
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// global styles
+body {
+  background-color: $color-5;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+
+#root {
+  width: 100%; height: 100%; overflow: hidden;
+}
+
+// component specific styles
+.email-form {
+  width: 0%;
+  overflow: hidden;
+  background-color: $color-2; border-radius: 5px;
+  text-align: center;
+  transition: width .9s, padding .3s;
+  &.mounted {
+    width: 100%; padding: 36px;
+  }
+  input { 
+    display: block; width: 80%; height: 36px; 
+    margin-left: auto; margin-right: auto; margin-top: 6px; margin-bottom: 6px;
+    padding: 0 16px;
+    font-weight: 300;
+    &:focus { outline: none; }
+  }
+}
+
+.logo-main {
+  width: 60px;
+  position: absolute; left: 30px; top: 30px;
+  border-radius: 5px;
+}
+
+.input-with-icon {
+  display: block; width: 80%;
+  position: relative;
+  margin-left: auto; margin-right: auto;
+  input { display: inline-block; width: 100%; height: 34px; }
+  .fas { 
+    position: absolute; right: 12px; top: 50%;
+    margin-top: -8px;
+    font-size: 16px;
+    color: $color-5;
+  }
+}
+
+input {
+  border-radius: 5px; border: 0;
+}
+
+.btn.btn-primary {
+  background-color: $color-5;
+  border-color: $color-5;
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.subscriptions-list {
+  width: 100%; margin: 0;
+}
+
+.subscriptions-list-item {
+  display: block; height: 48px; list-style: none;
+  padding-left: 12px; padding-right: 12px; margin: 6px;
+  border-radius: 5px;
+  background-color: $color-2;
+  line-height: 48px; font-size: 0;
+  > span, 
+  > div {
+    display: inline-block; width: 50%; font-size: 16px;
+  }
+  div.btn-wrapper { text-align: right; }
+  &:nth-child(even) { background-color: $color-3; }
+  .unsub {
+    font-size: 8px; text-transform: uppercase;
+    color: $color-5;
+    &:hover { background-color: rgba(#fff, .7); }
+  }
+}
+
+// common styles
+.flex {
+  display: flex; height: 100vh; 
+  align-items: center; justify-content: center; flex-direction: column;
+}
+
+.loading {
+  width: 60px; height: 60px;
+  margin-left: auto; margin-right: auto;
+  border: 8px solid $color-5; border-top: 8px solid #fff; border-radius: 50%;
+  animation: spin 2s linear infinite;
+}

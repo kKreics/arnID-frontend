@@ -1,26 +1,24 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import EmailPage from './components/EmailPage';
+import SubscriptionsPage from './components/SubscriptionsPage';
+import Logo from './logo3.png';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <div className="app container">
+          <img className="logo-main" src={Logo} />
+        </div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={EmailPage} />
+            <Route path='/subscriptions' component={SubscriptionsPage} />
+          </Switch>
+        </BrowserRouter>
+      </React.Fragment>
     );
   }
 }
